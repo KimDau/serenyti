@@ -37,5 +37,14 @@ function checkCookie() {
 
 function test()
 {
-    
+    console.log("test");
+    console
 }
+
+$(document).ready(function(){
+    $("form").on("submit", function(){
+        alert("You have tried to connect");
+        return false; //Empeche de renvoyer vers la page !
+        //return true; //permet de renvoyer vers la page !
+    });
+});
