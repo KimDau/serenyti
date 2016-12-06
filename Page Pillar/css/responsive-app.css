@@ -1,0 +1,336 @@
+@media (max-width: 767px) {
+  /**
+	 * ================================
+	 * Navbar Style 
+	 * ================================
+	 */
+  .header-nav {
+    /* After Fixed In Top */
+  }
+  .header-nav > .container {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .header-nav .navbar-header .navbar-brand {
+    margin-top: 30px;
+  }
+  .header-nav .navbar-header .navbar-brand img {
+    height: 45px;
+  }
+  .header-nav .navbar-collapse {
+    margin: auto;
+  }
+  .header-nav .navbar-collapse.in {
+    border-top-color: rgba(236, 206, 82, 0.9);
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+  .header-nav .nav {
+    overflow: hidden;
+    margin-top: 20px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .header-nav .nav li {
+    float: left;
+    overflow: hidden;
+  }
+  .header-nav .nav li a {
+    padding: 12px 22px !important;
+  }
+  .header-nav.navbar-home {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+  }
+  .google-trusted {
+    width: 100% !important;
+  }
+  .center-mobile {
+    text-align: center !important;
+  }
+  .header-nav.navbar-home .navbar-header .navbar-brand {
+    margin-top: -4px !important;
+  }
+  .header-nav.navbar-home .navbar-header .navbar-brand img {
+    height: 35px;
+  }
+  .header-nav.navbar-home .nav {
+    margin-top: 0px !important;
+  }
+  .header-nav.navbar-home .navbar-collapse {
+    background-color: transparent;
+  }
+  .header-nav.navbar-home .navbar-collapse.in {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  /**
+	 * ================================
+	 * Header Contant Style
+	 * ================================
+	 */
+  .header-body h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    line-height: 72px;
+  }
+  .header-body.section-separator {
+    padding: 110px 0;
+  }
+   .header-body .btn-header {
+    text-align: center !important;
+   }
+  .header-body .btn-header .btn {
+    margin-right: 0px;
+  }
+  /**
+	 * ======================
+	 * Pricing Table Section 
+	 * ======================
+	 */
+  .each-table {
+    margin-bottom: 15px;
+  }
+  .each-table:last-child {
+    margin-bottom: 0px;
+  }
+  .table-single .button .btn {
+    min-width: 220px !important;
+    padding: 13px 52px !important;
+  }
+  .table-single-2 .meta-price {
+    margin-bottom: 5px;
+  }
+  .table-single-2 .meta-price .rate {
+    top: 10px;
+  }
+  .table-single-2 .meta-heading,
+  .table-single-2 h4,
+  .table-single-2 .button,
+  .table-single-2 ul li {
+    text-align: center;
+  }
+  .table-single-2 .section-heading:after {
+    left: 50%;
+    margin-left: -25px;
+  }
+  /**
+	 * =========================================
+	 * Collapse CSS
+	 * =========================================
+	 */
+  .collapse-area .collapse-image {
+    overflow: hidden;
+  }
+  .collapse-area .collapse-image img {
+    height: auto;
+    width: 100% !important;
+    position: relative;
+  }
+  .collapse-area .collapse-inner,
+  .collapse-area .collapse-image {
+    display: block !important;
+    float: none !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /**
+	 * ==========================
+	 * Features Defult Style
+	 * ==========================
+	 */
+  .some-feature-body-image .features {
+    padding-bottom: 85px;
+  }
+  /**
+	 * =============================
+	 * Client's Feedback Section
+	 * =============================
+	 */
+  .client-feedback-contant .right-contant img {
+    max-width: 135px !important;
+  }
+  /**
+	 * ====================================
+	 * Newsletter Form Style
+	 * ====================================
+	 */
+  .subscribe-newsletter .form-control {
+    float: none;
+    margin-bottom: 10px;
+  }
+  .subscribe-newsletter .input-group-btn {
+    display: block;
+    width: 100%;
+  }
+  .subscribe-newsletter .input-group-btn .btn {
+    min-width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  /**
+	 * ===============================
+	 *   Defult Class Using Text Align Left Important
+	 * ===============================
+	 */
+  .align-left h1,
+  .align-left h2,
+  .align-left h3,
+  .align-left h4,
+  .align-left h5,
+  .align-left h6,
+  .align-left span,
+  .align-left div,
+  .align-left section,
+  .align-left p,
+  .align-left strong,
+  .align-left b,
+  .align-left * {
+    text-align: center !important;
+  }
+  .align-left .section-heading:after {
+    left: 50% !important;
+    margin-left: -25px !important;
+  }
+  /**
+	 * ================================
+	 * Header Contant Style
+	 * ================================
+	 */
+  .header-body.section-separator {
+    padding: 85px 0;
+  }
+  .header-body .header-contant-right,
+  .header-body .header-contant-left {
+    display: block;
+    float: none !important;
+    position: relative;
+  }
+  .header-body .header-contant-right img {
+    position: relative;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+  }
+  /**
+	 * =============================
+	 * EASY FEATURES AVAILABLE 
+	 * =============================
+	 */
+  .easy-features-available .section-header .section-heading,
+  .easy-features-available .section-header p {
+    text-align: center !important;
+  }
+  .easy-features-available .section-header .section-heading:after,
+  .easy-features-available .section-header p:after {
+    left: 0 !important;
+    margin-left: 0 !important;
+  }
+  .easy-features-available .easy-screens-right {
+    margin-bottom: 60px;
+    margin-top: 0px;
+  }
+  .easy-features-available .easy-screens-right .front {
+    top: 25px;
+  }
+  .easy-features-available .easy-screens-left .front,
+  .easy-features-available .easy-screens-right .front {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .easy-features-available .section-separator {
+    padding: 42px 0;
+  }
+  .easy-features-available .section-separator:first-child {
+    padding: 85px 0 42px 0;
+  }
+  .easy-features-available .section-separator:last-child {
+    padding: 42px 0 85px 0;
+  }
+  /**
+	 * ==========================
+	 * Feature Defult Style
+	 * ==========================
+	 */
+  .features .features-item {
+    padding-bottom: 25px;
+  }
+  .features .features-image {
+    text-align: center;
+  }
+  .features .features-image img {
+    display: inline-block;
+    max-height: 100%;
+    margin-left: -80px;
+    bottom: 0px;
+  }
+  .side-image .features-item,
+  .side-image .features-image {
+    display: block;
+    float: none !important;
+  }
+  .side-image .features-image img {
+    position: relative;
+    width: 36%;
+    margin: auto;
+    bottom: -40px;
+    left: 0;
+  }
+  /**
+	 * ========================================
+	 * Two cols description width image
+	 * ========================================
+	 */
+  .description-info-inner {
+    padding: 0px;
+  }
+  .description-info-inner .section-heading-normal {
+    text-align: left !important;
+  }
+  /**
+	 * ===========================
+	 * Footer Section 
+	 * ===========================
+	 */
+  .footer {
+    text-align: center;
+  }
+  .footer .section-separator {
+    padding: 50px 0;
+  }
+  .social-icon ul {
+    display: inline-block;
+    margin-top: 20px;
+    float: none !important;
+  }
+  /**
+	 * ======================
+	 * Pricing Table Section 
+	 * ======================
+	 */
+  .table-single .button .btn {
+    padding: 13px;
+    min-width: 100%;
+  }
+  /**
+	 * ================================
+	 * Some Features Section
+	 * ================================
+	 */
+  .some-feature-body-image.section-separator {
+    padding-bottom: 0px;
+  }
+  /**
+	 * =========================================
+	 * Download Section
+	 * =========================================
+	 */
+  .download .button-group {
+    text-align: center;
+    margin-top: 45px;
+  }
+  .download .button-group .btn {
+    margin: 5px 10px;
+  }
+}

@@ -1,0 +1,303 @@
+/**
+ * ===============================
+ *  Defult CSS 
+ * ===============================
+ */
+p {
+  color: rgba(0, 0, 0, 0.9);
+}
+/**
+ * ===============================
+ *  Section Heading Section Defult Style 
+ * ===============================
+ */
+.section-heading {
+  color: rgba(0, 0, 0, 0.9);
+}
+.section-heading:after {
+  background: url('../../../images/shape-yellow.png');
+}
+.section-header .section-heading-normal {
+  color: rgba(0, 0, 0, 0.9);
+}
+.section-header p {
+  color: rgba(0, 0, 0, 0.9);
+}
+/**
+ * ===============================
+ *   Defult Button Style
+ * ===============================
+ */
+.btn.btn-fill {
+  background-color: #ecce52;
+  border-color: #ecce52;
+}
+.btn.btn-fill:hover {
+  background-color: #dab418 !important;
+  border-color: #dab418 !important;
+}
+.btn.btn-border {
+  border-color: #ecce52;
+}
+.btn.btn-border:hover {
+  background-color: #ecce52;
+}
+.btn-text-link a {
+  color: #ecce52;
+}
+.btn-text-link a:hover {
+  color: #dab418 !important;
+}
+/**
+ * ================================
+ * Navbar Style 
+ * ================================
+ */
+.header-nav {
+  /* After Fixed In Top */
+}
+.header-nav.navbar-home .nav li .btn {
+  background-color: #ecce52;
+}
+.header-nav.navbar-home .nav li .btn:hover {
+  background-color: #dab418 !important;
+  border-color: #dab418 !important;
+}
+/**
+ * ==========================
+ * Features Defult Style
+ * ==========================
+ */
+/* Features Defult Style */
+.features .each-item .fa {
+  color: #ecce52;
+}
+.features-hover .each-item:hover .fa {
+  background-color: #ecce52;
+}
+/**
+ * =============================
+ * EASY FEATURES AVAILABLE 
+ * =============================
+ */
+.easy-features-available {
+  background: #ffffff;
+}
+/**
+ * ========================================
+ * Two cols description width image
+ * ========================================
+ */
+.two-cols-description-with-image {
+  background-color: #f3f4ef;
+}
+.description-info-inner .section-header p {
+  margin-bottom: 15px;
+}
+.description-info-inner ul li {
+  color: rgba(0, 0, 0, 0.9);
+}
+.description-info-inner ul li:after {
+  background-color: #ecce52;
+}
+/**
+ * ===============================
+ * Our featured Section Style
+ * ===============================
+ */
+.our-featured {
+  background-color: #ffffff;
+}
+/** 
+ * ======================
+ * Fun Facts
+ * ======================
+ */
+.fun-facts {
+  background-color: #f3f4ef;
+}
+/**
+ * ======================
+ * Pricing Table Section 
+ * ======================
+ */
+.pricing-table {
+  background-color: #ffffff;
+}
+.table-single {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+.table-single .important {
+  background-color: #ecce52;
+}
+.table-single .important:after {
+  border-top-color: #ecce52;
+}
+.table-single .meta-price {
+  color: #000000;
+}
+.table-single .meta-price .rate:after {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.table-single .button {
+  margin: 30px 0 20px;
+}
+.table-single .button .btn {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #000000;
+}
+.table-single:hover .meta-price .rate {
+  background-color: #ecce52;
+}
+.table-single:hover .button .btn {
+  border-color: #ecce52;
+  background-color: #ecce52;
+}
+/**
+ * ====================================
+ * Newsletter Form Style
+ * ====================================
+ */
+.subscribe-newsletter {
+  background-color: #ecce52;
+}
+.subscribe-newsletter .input-group .form-control:hover,
+.subscribe-newsletter .input-group .btn:hover {
+  color: #ecce52;
+}
+.subscribe-newsletter .input-group .btn:hover {
+  background-color: #171719 !important;
+}
+/**
+ * ===============================
+ * Subscription and contact  "MESSAGE"
+ * ===============================
+ */
+.subscription-success,
+.subscription-failed {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+/**
+ * =========================================
+ * Image Gallery Section
+ * =========================================
+ */
+.image-gallery {
+  background-color: #f3f4ef;
+}
+.image-gallery .owl-page span {
+  border-color: #ecce52 !important;
+}
+.image-gallery .owl-page.active span {
+  background-color: #ecce52 !important;
+}
+/**
+ * =========================================
+ * Download Section
+ * =========================================
+ */
+.download .button-group .btn {
+  background-color: #ecce52;
+}
+/**
+ * =========================================
+ * Collapse CSS
+ * =========================================
+ */
+#collapse-area {
+  background-color: #ffffff;
+}
+.collapse-tab .panel .panel-heading {
+  background: #ffffff;
+}
+.collapse-tab .panel .panel-heading .panel-title a {
+  background-color: #ffffff !important;
+  border-bottom-color: #ecce52;
+  color: rgba(0, 0, 0, 0.9);
+}
+.collapse-tab .panel .panel-heading .panel-title a .collapse-icon span {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.collapse-tab .panel .panel-heading .panel-title a .collapse-icon span:after {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.collapse-tab .panel-collapse {
+  background-color: #ffffff;
+  border-bottom-color: #ecce52;
+}
+.collapse-tab .panel-collapse .panel-body {
+  color: rgba(0, 0, 0, 0.9);
+}
+/**
+ * ===========================
+ * Footer Section 
+ * ===========================
+ */
+.footer {
+  background-color: #18181c;
+}
+.footer .copyright p {
+  color: rgba(255, 255, 255, 0.9);
+}
+.footer .copyright p a {
+  color: #ecce52;
+}
+.footer .copyright p a:hover {
+  color: #dab418 !important;
+}
+.social-icon ul li a {
+  color: #18181c;
+}
+/**
+ * ================================
+ * Some Features Section
+ * ================================
+ */
+.some-feature-background {
+  background-color: #ffffff;
+}
+.some-feature .section-header .section-heading {
+  color: rgba(255, 255, 255, 0.9);
+}
+.some-feature .section-header p {
+  color: rgba(255, 255, 255, 0.9);
+}
+.some-feature .features .detail h4 {
+  color: #ecce52;
+}
+.some-feature .features .detail p {
+  color: rgba(255, 255, 255, 0.9);
+}
+/**
+ * =============================
+ * Client's Feedback Section
+ * =============================
+ */
+.client-feedback {
+  background-color: #ffffff;
+}
+.client-feedback-contant .left-contant .quote-sym .fa {
+  color: #ecce52;
+}
+.client-feedback-contant .left-contant #sync1 {
+  background-color: #ffffff;
+}
+.client-feedback-contant .left-contant #sync1 .item blockquote {
+  color: rgba(0, 0, 0, 0.9);
+}
+.client-feedback-contant .left-contant #sync1 .item figcaption cite {
+  color: #ecce52;
+}
+.client-feedback-contant .left-contant #sync1 .owl-controls .owl-page span {
+  background: #ecce52;
+}
+@media (max-width: 767px) {
+  /**
+     * ================================
+     * Navbar Style 
+     * ================================
+     */
+  .header-nav .navbar-collapse.in {
+    border-top-color: rgba(236, 206, 82, 0.9);
+  }
+}
