@@ -1,4 +1,5 @@
-var CookieName = ["username","password"]; //The value to make on the cookie (to add on the code)
+var CookieName = ["username","password","usertype"]; //The value to make on the cookie (to add on the code)
+//usertype 0 = doctor usertype 1 = patient
 var ExpirationTime = 24; //24 hours
 function setCookie(username, password) { //Create cookie
     var d = new Date();

@@ -1,7 +1,7 @@
 Pillar POC
 
-Login : Enregistrement (temporaire/a changer) sur un cookie
-Premiere connexion = enregistrement automatique => renvoie vers la page suivante
-Deuxième demande la vérification.
+Login : Temporary register into a cookie.
+the first connexion is as a registration. After each you will be automatically send to another page.
 
-Nécéssite la connexion a la blockchain pour ajouter les Clés publique/prviés a la place d'id/mdp
+Need IOTA connexion for improving it(I don't know who can add anyone to do the registration of other - to add)
+
