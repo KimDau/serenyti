@@ -4,7 +4,7 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
     	$httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
 	});
 
-	app.controller('indexCtrl', function($scope) {
+	app.controller('dashboardCtrl', function($scope) {
 
 		$scope.patients = [
 						    {firstname:"Exbrayat", lastname:"Matthias", age:20, poids:70, taille: 1.85, city:"Châtillon", sexe:"M"},
