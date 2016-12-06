@@ -5,9 +5,11 @@ function setCookie(username, password) { //Create cookie
     var d = new Date();
     d.setTime(d.getTime() + (ExpirationTime*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
-    console.log("username = " + username + " password = " + password);
-    document.cookie = CookieName[0] + "=" + password +";" + CookieName[1] + "=" + username + ";"  + expires + ";path=/"; //Initialiaze cookie value
-    //Lots of problem with the order be careful !!!
+    document.cookie = CookieName[0] + "=" + username + ";";
+    document.cookie = CookieName[1] + "=" + password +";";
+    document.cookie = expires;
+    document.cookie = "path=/;";
+    //Impossible de les crées tous en même temps
     }
 
 function getCookie(cname) { //Permit acces to the cookie
@@ -25,7 +27,7 @@ function getCookie(cname) { //Permit acces to the cookie
     return "";
 }
 
-function checkPassword(username,password) { //Check the password, into the cookie (TO MODIFY)
+function IsTheGoodPassword(username,password) { //Check the password, into the cookie (TO MODIFY)
     var userpassword = getCookie(CookieName[1]);
     var usernameC = getCookie(CookieName[0]);
     var result = true;
@@ -47,15 +49,27 @@ function checkPassword(username,password) { //Check the password, into the cooki
 $(document).ready(function(){ //check the document changes
     $("form").on("submit", function(event){ //On the form submit
         var User = $( this ).serializeArray();
-        return checkPassword(User[0].value,User[1].value); //Return to the index page if you have the right name
+        var result =  IsTheGoodPassword(User[0].value,User[1].value); //Return to the index page if you have the right name
+        if(!result)
+        {
+            var wrong = document.getElementById("wrong");
+            wrong.innerHTML = "Wrong password";
+        }
+        return result;
     });
 });
 
 
 function CheckConnected() //Verify if you are connected
 { 
-    console.log("connected = " + getCookie(CookieName[0])); //Let you know on the console that you are connected
-    if(getCookie(CookieName[0]) ==undefined || getCookie(CookieName[0])=="") {
+    var username = getCookie(CookieName[0])
+    console.log("connected = " + username); //Let you know on the console that you are connected
+    if(username ==undefined || username=="") {
         location.href = "login.html"; //Return to the login html if your aren't connected
+    }
+    else
+    {
+        var name = document.getElementById("username");
+        name.innerHTML = username;
     }
 }
