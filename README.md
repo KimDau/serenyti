@@ -1,7 +1,7 @@
 Pillar POC
 
-Login : Temporary register into a cookie.
-the first connexion is as a registration. After each you will be automatically send to another page.
+Doctor dashboard/Login.html : Temporary register into a cookie.
+the first connexion is as a registration. After that you will be automatically send to another page.
+Need to separate the patient and the doctor.
 
-Need IOTA connexion for improving it(I don't know who can add anyone to do the registration of other - to add)
-
+If you forgot your Username/Password just reset your historical.
