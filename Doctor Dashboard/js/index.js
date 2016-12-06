@@ -19,4 +19,10 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
 			$scope.reverse = !$scope.reverse;
 		}
 
+		//Fonction d'identification du patient choisi
+		$scope.identifierPatient = function(id){
+			$scope.patientSelect = $scope.patients[id-1];
+			$scope.infoPatient = !$scope.infoPatient;
+		}
+
 }); //fin controlleur
