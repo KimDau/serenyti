@@ -52,7 +52,7 @@ function IsTheGoodPassword(value) { //Check the password, into the cookie (TO MO
 }
 
 $(document).ready(function(){ //check the document changes
-    $("form").on("submit", function(event){ //On the form submit
+    $("#connexion").on("submit", function(event){ //On the form submit
         event.preventDefault();
         var User = $( this ).serializeArray();
         doctor = getCookie(CookieName[2]);
@@ -79,11 +79,11 @@ $(document).ready(function(){ //check the document changes
         if(result){
             if(doctor)
             {
-                location.href = "dashboard.html";
+                location.href = "tasks.html";
             }
             else
             {
-                location.href = "tasks.html";
+                location.href = "dashboard.html";
             }
         }
     });
