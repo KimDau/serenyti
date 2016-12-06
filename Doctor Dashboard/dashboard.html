@@ -44,7 +44,7 @@
 </head>
 
 <body onload="CheckConnected()">
-	<div ng-app="pillarApp" ng-controller="indexCtrl">
+	<div ng-app="pillarApp" ng-controller="dashboardCtrl">
 	<!-- start: Header -->
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -63,59 +63,38 @@
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<i class="icon-bell"></i>
 								<span class="badge red">
-								7 </span>
+								4 </span>
 							</a>
 							<ul class="dropdown-menu notifications">
 								<li class="dropdown-menu-title">
- 									<span>You have 11 notifications</span>
+ 									<span>You have 4 notifications</span>
 									<a href="#refresh"><i class="icon-repeat"></i></a>
 								</li>	
                             	<li>
                                     <a href="#">
 										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
+										<span class="message">New patient</span>
 										<span class="time">1 min</span> 
                                     </a>
                                 </li>
 								<li>
                                     <a href="#">
 										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
+										<span class="message">New patient</span>
 										<span class="time">36 min</span> 
                                     </a>
                                 </li>
 								<li>
                                     <a href="#">
-										<span class="icon yellow"><i class="icon-shopping-cart"></i></span>
-										<span class="message">2 items sold</span>
-										<span class="time">1 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-user"></i></span>
-										<span class="message">User deleted account</span>
-										<span class="time">2 hour</span> 
-                                    </a>
-                                </li>
-								<li class="warning">
-                                    <a href="#">
-										<span class="icon red"><i class="icon-shopping-cart"></i></span>
-										<span class="message">New comment</span>
-										<span class="time">6 hour</span> 
-                                    </a>
-                                </li>
-								<li>
-                                    <a href="#">
 										<span class="icon green"><i class="icon-comment-alt"></i></span>
-										<span class="message">New comment</span>
+										<span class="message">New message</span>
 										<span class="time">yesterday</span> 
                                     </a>
                                 </li>
 								<li>
                                     <a href="#">
 										<span class="icon blue"><i class="icon-user"></i></span>
-										<span class="message">New user registration</span>
+										<span class="message">New patient</span>
 										<span class="time">yesterday</span> 
                                     </a>
                                 </li>
@@ -160,9 +139,8 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+						<li><a href="dashboard.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
 						<li><a href="tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
-						<li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
 						<li><a href="login.html"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li>
 					</ul>
 				</div>
@@ -183,10 +161,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="dashboard.html">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Dashboard</a></li>
+				<li><a href="dashboard.html">Dashboard</a></li>
 			</ul>
 
 			<div class="row-fluid sortable" ng-show="!infoPatient">		
@@ -443,7 +421,7 @@
 		<!-- CDN AngularJs -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 
-		<script src="js/index.js"></script>
+		<script src="js/dashboard.js"></script>
 
 		<script src="js/dirPagination.js"></script>
 		
