@@ -26,3 +26,31 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
 		}
 
 }); //fin controlleur
+
+$("#sincos2").length
+	{
+		var sin = [], cos = [];
+
+		for (var i = 0; i < 14; i += 0.5) {
+			sin.push([i, Math.sin(i)/i]);
+			cos.push([i, Math.cos(i)]);
+		}
+
+		var plot = $.plot($("#sincos2"),
+			   [ { data: sin, label: "sin(x)/x"}, { data: cos, label: "j'ai gagner" } ], {
+				   series: {
+					   lines: { show: true,
+								lineWidth: 2,
+							 },
+					   points: { show: true },
+					   shadowSize: 2
+				   },
+				   grid: { hoverable: true, 
+						   clickable: true, 
+						   tickColor: "#dddddd",
+						   borderWidth: 0 
+						 },
+				   yaxis: { min: -1.2, max: 1.2 },
+				   colors: ["#FA5833", "#2FABE9"]
+				 });
+	};
