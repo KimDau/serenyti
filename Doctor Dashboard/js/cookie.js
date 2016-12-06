@@ -6,6 +6,7 @@ var ExpirationTime = 24; //24 hours
 
 function setCookie(value) { //Create cookie
     var d = new Date();
+    console.log(value);
     d.setTime(d.getTime() + (ExpirationTime*60*60*1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = CookieName[0] + "=" + value[0] + ";";
@@ -31,19 +32,18 @@ function getCookie(cname) { //Permit acces to the cookie
     return "";
 }
 
-function IsTheGoodPassword(username,password) { //Check the password, into the cookie (TO MODIFY)
+function IsTheGoodPassword(value) { //Check the password, into the cookie (TO MODIFY)
     var userpassword = getCookie(CookieName[1]);
     var usernameC = getCookie(CookieName[0]);
     var result = true;
-    console.log("username : " + usernameC + " vs " + username + " & userpassword : " + userpassword + " vs " + password + " doctor : " + doctor +" vs " + YouAreADoctor);
-    if ((usernameC =="" || userpassword =="") && password != "" && username != "") 
+    console.log("username : " + usernameC + " vs " + value[0] + " & userpassword : " + userpassword + " vs " + value[1] + " doctor : " + doctor +" vs " + value[2]);
+    if ((usernameC =="" || userpassword =="" || doctor=="") && value[0] != "" && value[1] != "") 
        {
-            var cookievalue = [username,password,doctor];
-            setCookie(cookievalue);
+            setCookie(value);
        }
     else
        {
-            if(userpassword != password || usernameC != username)
+            if(userpassword != value[1] || usernameC != value[0])
             {
                 result = false;
             }
@@ -55,24 +55,24 @@ $(document).ready(function(){ //check the document changes
     $("form").on("submit", function(event){ //On the form submit
         event.preventDefault();
         var User = $( this ).serializeArray();
+        doctor = getCookie(CookieName[2]);
         var result = false;
         var wrong = document.getElementById("wrong");
         var message = "";
-        if(doctor == undefined)
+        if(doctor =="")
         {
             doctor = YouAreADoctor;
         }
-        else
+        var value = [User[0].value,User[1].value, YouAreADoctor];
+        var result =  IsTheGoodPassword(value); //Return to the index page if you have the right name            if(!result)
+        if(!result)
         {
-            var result =  IsTheGoodPassword(User[0].value,User[1].value); //Return to the index page if you have the right name
-            if(!result)
-            {
-                message += "Wrong password ! ";
-            }
-            if(doctor != YouAreADoctor)
-            {
-                result = false;
-            }
+            message += "Wrong password ! ";
+        }
+        if(doctor != YouAreADoctor)            
+        {
+            result = false;
+            message += " are you a doctor or no ?";
         }
         wrong.innerHTML = message;
         console.log("enter ? " + result);
@@ -90,8 +90,9 @@ $(document).ready(function(){ //check the document changes
 });
 
 function IsADoctor(YesOrNO) //Doctor or Patient
-{//true
+{//0 = doctor 1 = patient
     YouAreADoctor = YesOrNO;
+
 }
 
 function ConnectionProblem() //For Knowing when it's have a problem of connexion
@@ -105,11 +106,11 @@ function ConnectionProblem() //For Knowing when it's have a problem of connexion
     }
     var urlFull = location.href.split('/')
     var url = urlFull[urlFull.length-1];
-    if(url == "tasks.html" && doctor==true)
+    if(url == "tasks.html" && doctor==1)
     {
         result = false;
     }
-    if(url == "dashboard.html" && doctor==false)
+    if(url == "dashboard.html" && doctor==0)
     {
         result = false;
     }
