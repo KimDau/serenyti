@@ -1,9 +1,8 @@
 var CookieName = ["username","password"]; //The value to make on the cookie (to add on the code)
-var ExpirationTime = 1; //1 day
-
+var ExpirationTime = 24; //24 hours
 function setCookie(username, password) { //Create cookie
     var d = new Date();
-    d.setTime(d.getTime() + (ExpirationTime*24*60*60*1000));
+    d.setTime(d.getTime() + (ExpirationTime*60*60*1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = CookieName[0] + "=" + username + ";";
     document.cookie = CookieName[1] + "=" + password +";";

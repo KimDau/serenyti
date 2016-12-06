@@ -7,10 +7,10 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
 	app.controller('dashboardCtrl', function($scope) {
 
 		$scope.patients = [
-						    {firstname:"Exbrayat", lastname:"Matthias", age:20, poids:70, taille: 1.85, city:"Châtillon", sexe:"M"},
-						    {firstname:"Dorai", lastname:"Sacha", age:20, poids:75, taille: 1.85, city:"Saint-Denis", sexe:"M"},
-						    {firstname:"Enaux", lastname:"Florent", age:20, poids:70, taille: 1.75, city:"Nanterre", sexe:"M"},
-						    {firstname:"Dias Perez", lastname:"Anais", age:20, poids:60, taille: 1.75, city:"Courbevoie", sexe:"F"}
+						    {firstname:"Exbrayat", lastname:"Matthias", age:20, poids:70, taille: 1.85, city:"Châtillon", sexe:"M", question1:"yes", question2:"no",question3:"no",question4:"no",question5:"5"},
+						    {firstname:"Dorai", lastname:"Sacha", age:20, poids:75, taille: 1.85, city:"Saint-Denis", sexe:"M", question1:"yes", question2:"no",question3:"yes",question4:"no",question5:"3"},
+						    {firstname:"Enaux", lastname:"Florent", age:20, poids:70, taille: 1.75, city:"Nanterre", sexe:"M", question1:"yes", question2:"yes",question3:"no",question4:"no",question5:"2"},
+						    {firstname:"Dias Perez", lastname:"Anais", age:20, poids:60, taille: 1.75, city:"Courbevoie", sexe:"F", question1:"yes", question2:"no",question3:"yes",question4:"yes",question5:"4"}
 						  ];
 
 		//Fonction de tri du tableau de patients
