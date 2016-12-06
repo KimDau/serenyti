@@ -5,6 +5,7 @@ function setCookie(username, password) { //Create cookie
     var d = new Date();
     d.setTime(d.getTime() + (ExpirationTime*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
+    console.log("username = " + username + " password = " + password);
     document.cookie = CookieName[0] + "=" + password +";" + CookieName[1] + "=" + username + ";"  + expires + ";path=/"; //Initialiaze cookie value
     //Lots of problem with the order be careful !!!
     }
@@ -29,7 +30,7 @@ function checkPassword(username,password) { //Check the password, into the cooki
     var usernameC = getCookie(CookieName[0]);
     var result = true;
     console.log("username : " + usernameC + " vs " + username + " & userpassword : " + userpassword + " vs " + password);
-    if (usernameC =="" && password != "" && username != "") 
+    if ((usernameC =="" || userpassword =="") && password != "" && username != "") 
        {
             setCookie(username,password);
        }
@@ -46,9 +47,15 @@ function checkPassword(username,password) { //Check the password, into the cooki
 $(document).ready(function(){ //check the document changes
     $("form").on("submit", function(event){ //On the form submit
         var User = $( this ).serializeArray();
-        console.log(checkPassword(User[0].value,User[1].value));
-        /*if(checkPassword(User[0].value,User[1].value)) {return true;}
-        else {return false;}*/
         return checkPassword(User[0].value,User[1].value); //Return to the index page if you have the right name
     });
 });
+
+
+function CheckConnected() //Verify if you are connected
+{ 
+    console.log("connected = " + getCookie(CookieName[0])); //Let you know on the console that you are connected
+    if(getCookie(CookieName[0]) ==undefined || getCookie(CookieName[0])=="") {
+        location.href = "login.html"; //Return to the login html if your aren't connected
+    }
+}
