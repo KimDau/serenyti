@@ -1,14 +1,14 @@
 var CookieName = ["username","test"];
 var ExpirationTime = 1; //1 day
 
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exdays) { //Create cookie
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; //Initialiaze cookie value
 }
 
-function getCookie(cname) {
+function getCookie(cname) { //Permit acces to the cookie
     var name = cname + "=";
     var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
@@ -23,28 +23,22 @@ function getCookie(cname) {
     return "";
 }
 
-function checkCookie() {
+function checkCookie() { //Check cookie value
     var user = getCookie(CookieName[0]);
     if (user != "") {
-        alert("Welcome again " + user);
+        alert("Welcome again " + user); //A welcome alert pop if you are already register (to modify)
     } else {
-        user = prompt("Please enter your name:", "");
+        user = prompt("Please enter your name:", ""); //Or ask your name
         if (user != "" && user != null) {
             setCookie(CookieName[0], user, ExpirationTime);
         }
     }
 }
 
-function test()
-{
-    console.log("test");
-    console
-}
-
 $(document).ready(function(){
     $("form").on("submit", function(){
         alert("You have tried to connect");
-        return false; //Empeche de renvoyer vers la page !
-        //return true; //permet de renvoyer vers la page !
+        return false; //Do not return to the index page
+        //return true; //That permit it
     });
 });
