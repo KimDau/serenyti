@@ -33,7 +33,7 @@ $("#heartfrequency").length
 		var hf = [];
 
 		for (var i = 0; i < 24; i += 1) {
-			hf.push([i, 36.5+(2*Math.random())]);
+			hf.push([i, 50+(100*Math.random())]);
 		}
 
 		var plot = $.plot($("#heartfrequency"),
@@ -58,14 +58,14 @@ $("#heartfrequency").length
 //Graphic blood pressure
 $("#bloodPressure").length
 	{
-		var sin = [140,130,160,90,85,79,127,118,115,140,130,160,90,85,79,127,118,115,127,118,115,140,113,116];
+		var bp = [140,130,160,90,85,79,127,118,115,140,130,160,90,85,79,127,118,115,127,118,115,140,113,116];
 
 		for (var i = 0; i < 24; i += 1) {
-			sin.push([i, sin[i]]);
+			bp.push([i, bp[i]]);
 		}
 
 		var plot = $.plot($("#bloodPressure"),
-			   [ { data: sin, label: "Blood pressure"}], {
+			   [ { data: bp, label: "Blood pressure"}], {
 			   	   series: {
 					   lines: { show: true,
 								lineWidth: 5,
@@ -86,14 +86,14 @@ $("#bloodPressure").length
 //Graphic temperature
 $("#temperature").length
 	{
-		var cos = [];
+		var tp = [];
 
 		for (var i = 0; i < 24; i += 1) {
-			cos.push([i, 36.5+(2*Math.random())]);
+			tp.push([i, 36.5+(2*Math.random())]);
 		}
 
 		var plot = $.plot($("#temperature"),
-			   [ { data: cos, label: "Temperature" } ], {
+			   [ { data: tp, label: "Temperature" } ], {
 				   series: {
 					   lines: { show: true,
 								lineWidth: 5,
