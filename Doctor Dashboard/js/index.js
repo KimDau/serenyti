@@ -27,17 +27,16 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
 
 }); //fin controlleur
 
-$("#sincos2").length
+$("#bloodPressure").length
 	{
-		var sin = [], cos = [];
+		var sin = [140,130,160,90,85,79,127,118,115,140,130,160,90,85,79,127,118,115,127,118,115,140];
 
-		for (var i = 0; i < 14; i += 0.5) {
-			sin.push([i, Math.sin(i)/i]);
-			cos.push([i, Math.cos(i)]);
+		for (var i = 0; i < 24; i += 1) {
+			sin.push([i, sin[i]]);
 		}
 
-		var plot = $.plot($("#sincos2"),
-			   [ { data: sin, label: "sin(x)/x"}, { data: cos, label: "j'ai gagner" } ], {
+		var plot = $.plot($("#bloodPressure"),
+			   [ { data: sin, label: "Blood pressure"}], {
 				   series: {
 					   lines: { show: true,
 								lineWidth: 2,
@@ -50,7 +49,7 @@ $("#sincos2").length
 						   tickColor: "#dddddd",
 						   borderWidth: 0 
 						 },
-				   yaxis: { min: -1.2, max: 1.2 },
+				   yaxis: { min: 70, max: 190 },
 				   colors: ["#FA5833", "#2FABE9"]
 				 });
 	};
