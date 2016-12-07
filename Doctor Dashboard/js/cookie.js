@@ -106,11 +106,11 @@ function ConnectionProblem() //For Knowing when it's have a problem of connexion
     }
     var urlFull = location.href.split('/')
     var url = urlFull[urlFull.length-1];
-    if(url == "tasks.html" && doctor==1)
+    if(url == "tasks.html" && doctor==0)
     {
         result = false;
     }
-    if(url == "dashboard.html" && doctor==0)
+    if(url == "dashboard.html" && doctor==1)
     {
         result = false;
     }
