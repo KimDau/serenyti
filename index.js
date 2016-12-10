@@ -20,7 +20,7 @@ function sendRequest()
 app.use('/Doctor_Dashboard', express.static(__dirname + '/Doctor_Dashboard'));
 app.use('/Page_Pillar', express.static(__dirname + '/Page_Pillar'));
 
-app.get('/Page_Pillar').then(function (req, res) {
+app.get('/Page_Pillar',function (req, res) {
   res.sendFile(path.join(__dirname+'/Page_Pillar/index.html'));
 })
 app.get('/Doctor_Dashboard/login.html', function (req, res) {
@@ -35,7 +35,7 @@ app.post('/Doctor_Dashboard/dashboard.html', function (req, res) {
 app.get('/Doctor_Dashboard/tasks.html', function (req, res) {
   res.sendFile(path.join(__dirname+'/Doctor_Dashboard/tasks.html'));
 })
-aap.post('/send')
+app.post('/send')
 
 
 
