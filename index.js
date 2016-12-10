@@ -1,7 +1,7 @@
-// Retrieve
 var MongoClient = require('mongodb').MongoClient;
-var express = require('express')
-var app = express()
+var bodyParser = require('body-parser');
+var express = require('express');
+var app = express();
 var path = require("path");
 var request = require('request');
 
@@ -12,33 +12,41 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
   }
 });
 
-function sendRequest()
-{
-	console.log("test");
-}
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
+//To get the html/css/js on the folder /Doctor_Dashboard and /Page_Pillar
 app.use('/Doctor_Dashboard', express.static(__dirname + '/Doctor_Dashboard'));
 app.use('/Page_Pillar', express.static(__dirname + '/Page_Pillar'));
 
-app.get('/Page_Pillar',function (req, res) {
+//To send on the good page. Name can be change as we wish
+
+app.get('/pillar',function (req, res) {
   res.sendFile(path.join(__dirname+'/Page_Pillar/index.html'));
-})
-app.get('/Doctor_Dashboard/login.html', function (req, res) {
+});
+app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname+'/Doctor_Dashboard/login.html'));
-})
-app.get('/Doctor_Dashboard/dashboard.html', function (req, res) {
+});
+app.get('/dashboard', function (req, res) {
   res.sendFile(path.join(__dirname+'/Doctor_Dashboard/dashboard.html'));
-})
-app.post('/Doctor_Dashboard/dashboard.html', function (req, res) {
-  res.sendFile(path.join(__dirname+'/Doctor_Dashboard/dashboard.html'));
-})
-app.get('/Doctor_Dashboard/tasks.html', function (req, res) {
+});
+app.post('/dashboard', function (req, res) {
+  res.redirect('/dashboard');
+});
+app.get('/tasks', function (req, res) {
   res.sendFile(path.join(__dirname+'/Doctor_Dashboard/tasks.html'));
-})
-app.post('/send')
+});
+
+//receiver
+app.post('/send',function (req, res) {
+  var name = req.body.name;
+  console.log(name);
+});
 
 
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
-})
+});

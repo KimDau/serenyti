@@ -55,6 +55,8 @@ $(document).ready(function(){ //check the document changes
     $("#connexion").on("submit", function(event){ //On the form submit
         event.preventDefault();
         var User = $( this ).serializeArray();
+        console.log(User);
+        console.log( document.getElementsByName('yes').value );
         doctor = getCookie(CookieName[2]);
         var result = false;
         var wrong = document.getElementById("wrong");
@@ -79,11 +81,11 @@ $(document).ready(function(){ //check the document changes
         if(result){
             if(doctor)
             {
-                location.href = "tasks.html";
+                location.href = "tasks";
             }
             else
             {
-                location.href = "dashboard.html";
+                location.href = "dashboard";
             }
         }
     });
@@ -93,41 +95,4 @@ function IsADoctor(YesOrNO) //Doctor or Patient
 {//0 = doctor 1 = patient
     YouAreADoctor = YesOrNO;
 
-}
-
-function ConnectionProblem() //For Knowing when it's have a problem of connexion
-{
-    var username = getCookie(CookieName[0]);
-    var password = getCookie(CookieName[1]);
-    var result = true
-    if(username ==undefined || username=="" || password ==undefined || password=="" || doctor ==undefined )
-    {
-        result = false;
-    }
-    var urlFull = location.href.split('/')
-    var url = urlFull[urlFull.length-1];
-    if(url == "tasks.html" && doctor==0)
-    {
-        result = false;
-    }
-    if(url == "dashboard.html" && doctor==1)
-    {
-        result = false;
-    }
-    return result;
-}
-
-function CheckConnected() //Verify if you are connected
-{ 
-    var username = getCookie(CookieName[0])
-     //Let you know on the console that you are connected
-    if(!ConnectionProblem()) {
-        location.href = "login.html"; //Return to the login html if your aren't connected
-    }
-    else
-    {
-        var name = document.getElementById("username");
-        name.innerHTML = username;
-    }
-    console.log("connected = " + ConnectionProblem());
 }
