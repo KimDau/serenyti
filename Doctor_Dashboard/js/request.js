@@ -1,11 +1,11 @@
 var PROMvalue = [[]];
 var xhttp = new XMLHttpRequest();
-var SendUrl = "/send";
+var sendPromUrl = "/sendprom";
 var lengthPROM = 4; //The length of the prom survey we wish
 
 function sendPROM()
 {
-	console.log("données replis = " + PROMvalue.length);
+	console.log("answer question = " + PROMvalue.length);
 	if(PROMvalue.length != lengthPROM) //If it's fine
 	{
 		console.log("PROM survey not fulfill");
@@ -24,15 +24,14 @@ function sendPROM()
 		{
 			params+=","+PROMvalue[i][1];
 		}
-		sendData(params);
+		sendData(params, sendPromUrl);
 	}
 }
 
-function sendData(params) //send the data of the prom survey. Have a single string in params
+function sendData(params, url) //send the data of the prom survey. Have a single string in params
 {
-	xhttp.open("POST", SendUrl, true);
+	xhttp.open("POST", url, true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
 	xhttp.onload = function() {//Call a function when the state changes.
 	        console.log(this.responseText)
 	};

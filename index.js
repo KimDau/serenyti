@@ -5,6 +5,10 @@ var app = express();
 var path = require("path");
 var request = require('request');
 
+var d = new Date();
+var h_hour = d.getUTCFullYear() +"/"+(d.getUTCMonth()+1)+"/"+d.getUTCDate()+"_"+d.getHours(); //Date format : YEAR/MONTH/DAY_HOUR
+
+
 // Connect to the db
 MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
   if(!err) {
@@ -20,8 +24,10 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
   app.use('/Doctor_Dashboard', express.static(__dirname + '/Doctor_Dashboard'));
   app.use('/Page_Pillar', express.static(__dirname + '/Page_Pillar'));
 
-  //To send on the good page. Name can be change as we wish
-
+  //To get the html page
+   app.get('/',function (req, res) {
+    res.redirect('/pillar');
+  });
   app.get('/pillar',function (req, res) {
     res.sendFile(path.join(__dirname+'/Page_Pillar/index.html'));
   });
@@ -38,12 +44,14 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
     res.sendFile(path.join(__dirname+'/Doctor_Dashboard/tasks.html'));
   });
 
-  //receiver
-  app.post('/send',function (req, res) {
-    var value = req.body.value;
-    var question = req.body.question;
+  //send the data
+  app.post('/sendprom',function (req, res) {
+    var answer = [req.body.value.split(","),req.body.question.split(",")];
+    console.log(answer);
+    console.log(h_hour);
     db.collection("patient").insertOne({
-      name:"test"
+        answer:answer,
+        date:h_hour
     });
   });
 
