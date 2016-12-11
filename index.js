@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser');
+var ObjectId = require('mongodb').ObjectID;
 var express = require('express');
 var app = express();
 var path = require("path");
@@ -12,6 +13,7 @@ var h_hour = d.getUTCFullYear() +"/"+(d.getUTCMonth()+1)+"/"+d.getUTCDate()+"_"+
 // Connect to the db
 MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
   if(!err) {
+
     console.log("Connected to the Pillar database");
   }
 
@@ -46,13 +48,38 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
 
   //send the data
   app.post('/sendprom',function (req, res) {
-    var answer = [req.body.value.split(","),req.body.question.split(",")];
-    console.log(answer);
-    console.log(h_hour);
-    db.collection("patient").insertOne({
-        answer:answer,
-        date:h_hour
-    });
+      var collection = db.collection('patient');
+      //var id = req.body.id;
+      var id = ObjectId("584c9e8395cee101f58028be");
+      var value = req.body.value.split(",");
+      var question = req.body.question.split(",");
+      var answer = [h_hour];
+      for(var i = 0; i < question.length;i++)
+      {
+          answer[i+1] = [value[i],question[i]];
+      }
+      collection.findOne({_id: id}).then(function(doc){
+          var prom = doc.prom;
+          prom[prom.length] = answer;
+          collection.updateOne({_id: ObjectId("584c9e8395cee101f58028be")},
+              { $set : { "prom" : prom }},
+              {upsert: true}).catch(function()
+          {
+              console.log("erreur");
+          });
+      }, function(err)
+      {
+          console.log(err);
+      });
+      /*db.collection('patient').save({_id: ObjectId("1"),
+       "name" : "me",
+       "prom" : [
+       ["2016/5/3_16",["false","0"],["true","1"],["true","2"],["4","3"]],
+       ["2016/5/3_16",["true","0"],["true","1"],["false","2"],["4","3"]]],
+       "fitbitdata":[
+       ["2016/5/3_15",["name",56,7],["name",56,7]],
+       ["2016/5/3_15",["name",56,7],["name",56,7]]]
+       });*/
   });
 
 

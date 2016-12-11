@@ -12,7 +12,7 @@ function sendPROM()
 	}
 	else
 	{
-		var params = "value=";
+		var params = "id=1&value=";
         params+=PROMvalue[0][0]; //For don't having the "," on the last character
 		for(var i = 1; i < PROMvalue.length;i++) //check the length and add the prom value
 		{

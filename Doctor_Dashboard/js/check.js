@@ -1,6 +1,5 @@
 var CookieName = ["username","password","usertype"]; //The value to make on the cookie (to add on the code)
 
-
 function ConnectionProblem() //For Knowing when it's have a problem of connexion
 {
     var username = getCookie(CookieName[0]);
@@ -10,7 +9,7 @@ function ConnectionProblem() //For Knowing when it's have a problem of connexion
     {
         result = false;
     }
-    var urlFull = location.href.split('/')
+    var urlFull = location.href.split('/');
     var url = urlFull[urlFull.length-1];
     if(url == "tasks" && doctor==0)
     {
@@ -36,4 +35,4 @@ window.onload = function CheckConnected() //Verify if you are connected
         name.innerHTML = username;
     }
     console.log("connected = " + ConnectionProblem());
-}
+};
