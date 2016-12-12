@@ -5,6 +5,8 @@ var express = require('express');
 var app = express();
 var path = require("path");
 var request = require('request');
+var last = "last"; //Value for the last PROM survey
+
 
 var d = new Date();
 var h_hour = d.getUTCFullYear() +"/"+(d.getUTCMonth()+1)+"/"+d.getUTCDate()+"_"+d.getHours(); //Date format : YEAR/MONTH/DAY_HOUR
@@ -46,11 +48,10 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
     res.sendFile(path.join(__dirname+'/Doctor_Dashboard/tasks.html'));
   });
 
-  //send the data
+  //send each PROM survey to the mongodb database
   app.post('/sendprom',function (req, res) {
       var collection = db.collection('patient');
-      //var id = req.body.id;
-      var id = ObjectId("584c9e8395cee101f58028be");
+      var id = ObjectId(req.body.id);
       var value = req.body.value.split(",");
       var question = req.body.question.split(",");
       var answer = [h_hour];
@@ -61,29 +62,49 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
       collection.findOne({_id: id}).then(function(doc){
           var prom = doc.prom;
           prom[prom.length] = answer;
-          collection.updateOne({_id: ObjectId("584c9e8395cee101f58028be")},
+          collection.updateOne({_id: id},
               { $set : { "prom" : prom }},
-              {upsert: true}).catch(function()
-          {
-              console.log("erreur");
-          });
-      }, function(err)
-      {
-          console.log(err);
-      });
-      /*db.collection('patient').save({_id: ObjectId("1"),
-       "name" : "me",
-       "prom" : [
-       ["2016/5/3_16",["false","0"],["true","1"],["true","2"],["4","3"]],
-       ["2016/5/3_16",["true","0"],["true","1"],["false","2"],["4","3"]]],
-       "fitbitdata":[
-       ["2016/5/3_15",["name",56,7],["name",56,7]],
-       ["2016/5/3_15",["name",56,7],["name",56,7]]]
-       });*/
+              {upsert: true}).catch(function(err) {console.log(err);});
+      }, function(err) {console.log(err);});
   });
 
-
+  //get one PROM survey from the mongodb database
+  app.post('/getprom',function (req, res) {
+      var result;
+      var id = ObjectId(req.body.id);
+      var dateChosen = req.body.date;
+      var collection = db.collection('patient');
+      collection.findOne({_id: id}).then(function(doc)
+      {
+          if(dateChosen == last)
+          {
+              result  = doc.prom[0];
+          }
+          res.send(result);
+      }, function(err){console.log(err);});
+    });
+    app.get('/insert',function(req,res)
+    {
+        var collection = db.collection('patient');
+        collection.save({
+            "_id" : ObjectId("584c4e8595cee101f58028be"),
+            "name" : "vous",
+            "prom" : [
+                ["2016/12/11_20", ["yes", "0"], ["no", "1"], ["no", "2"], ["yes", "3"], ["2", "4"]],
+                ["2016/12/11_20", ["no", "0"], ["yes", "1"], ["no", "2"], ["yes", "3"], ["2", "4"]],
+                ["2016/12/11_20", ["no", "0"], ["yes", "1"],["no", "2"], ["yes", "3"], ["2", "4"]]],
+            "fitbitdata" : [
+                ["2016/5/3_15",
+                    ["name", 56, 7],
+                    ["name", 56, 7]],
+                ["2016/5/3_15",
+                    ["name", 56, 7],
+                    ["name", 56, 7]]]
+        })
+        res.redirect('/dashboard');
+    });
 });
+
 
 
 

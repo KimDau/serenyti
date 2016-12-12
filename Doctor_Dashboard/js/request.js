@@ -1,7 +1,14 @@
 var PROMvalue = [[]];
 var xhttp = new XMLHttpRequest();
 var sendPromUrl = "/sendprom";
-var lengthPROM = 4; //The length of the prom survey we wish
+var getPromUrl = "/getprom";
+var lengthPROM = 5; //The length of the prom survey we wish
+
+function changeValue(nbQuestion, value) //Change the value of the prom survey
+{
+    PROMvalue[nbQuestion] = [value,nbQuestion];
+    //If possible add the function which darken the button
+}
 
 function sendPROM()
 {
@@ -12,7 +19,7 @@ function sendPROM()
 	}
 	else
 	{
-		var params = "id=1&value=";
+		var params = "id="+id+"&value=";
         params+=PROMvalue[0][0]; //For don't having the "," on the last character
 		for(var i = 1; i < PROMvalue.length;i++) //check the length and add the prom value
 		{
@@ -38,8 +45,30 @@ function sendData(params, url) //send the data of the prom survey. Have a single
 	xhttp.send(params); //Send the data. On the page '/Doctor_Dashboard/send'
 }
 
-function changeValue(nbQuestion, value)
+function getProm(idPatient, dateChosen)
 {
-	PROMvalue[nbQuestion] = [value,nbQuestion];
-	//If possible add the function which darken the button
+    var prom = new Promise(function(resolve, reject) //send the data of the prom survey. Have a single string in params
+    {
+        xhttp.open("POST", getPromUrl, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onload = function() {//Call a function when the state changes.
+            resolve(TransformProm(this.responseText));
+        };
+        xhttp.send("id="+idPatient+"&date="+dateChosen); //Send the data. On the page '/Doctor_Dashboard/send'
+    });
+    return prom;
+}
+
+function TransformProm(text)
+{
+    var temp = text.split('"');
+    var j = 1;
+    var result = [[]];
+    result[0]=temp[1];
+    for(var i =3; i < temp.length;i+=4)
+    {
+        result[j]= [temp[i],temp[i+2]];
+        j++;
+    }
+    return result;
 }

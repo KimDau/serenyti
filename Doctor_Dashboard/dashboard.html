@@ -214,7 +214,7 @@
 									<td class="center">{{patient.city}}</td>
 									<td class="center">{{patient.sexe}}</td>
 									<td class="center">
-										<a class="btn btn-success" ng-click="identifierPatient($index+1);">
+										<a class="btn btn-success" ng-click="identifiatePatientAndGetProm($index+1);">
 											<i class="halflings-icon white zoom-in"></i>  
 										</a>
 										<a class="btn btn-danger" href="#">
@@ -238,10 +238,10 @@
 			
 			</div><!--/row-->
 
-			<div ng-show="infoPatient" class="row-fluid">
+			<div ng-show="infoPatient" class="row-fluid" >
 				
 
-				<div class = "priority high container-fluid-full">
+				<div class = "priority high container-fluid-full" align="center">
 
 					<span>high priority</span>	
 
@@ -251,7 +251,9 @@
 				<div style="display: table;">
 					<p>Details for patient : <strong>{{patientSelect.firstname}} {{patientSelect.lastname}}</strong>
 				</div >
-					<div style="display: table-cell;">
+					<div align="left" style="display: table-cell;">
+
+						<h3>Patient</h3>
 						<ul>
 							<li>Age : <strong>{{patientSelect.age}}</strong></li>
 							<li>Sex : <strong>{{patientSelect.sexe}}</strong></li>
@@ -260,14 +262,26 @@
 							<li>City : <strong>{{patientSelect.city}}</strong></li>
 						</ul>
 					</div>
+					<div align="left" style="display: table-cell; padding-left: 50px">
 
-					<div style="display: table-cell; padding-left: 50px">
+						<h3>Lastest PROM Survey : Question</h3>
 						<ul>
-							<li>Question 1 <strong>{{patientSelect.question1}}</strong></li>
-							<li>Question 2 <strong>{{patientSelect.question2}}</strong></li>
-							<li>Question 3 <strong>{{patientSelect.question3}}</strong></li>
-							<li>Question 4 <strong>{{patientSelect.question4}}</strong></li>
-							<li>Question 5 <strong>{{patientSelect.question5}}</strong></li>
+							<li><strong>{{question.question1}}</strong></li>
+							<li><strong>{{question.question2}}</strong></li>
+							<li><strong>{{question.question3}}</strong></li>
+							<li><strong>{{question.question4}}</strong></li>
+							<li><strong>{{question.question5}}</strong></li>
+						</ul>
+					</div>
+					<div align="left" style="display: table-cell; padding-left: 50px">
+
+						<h3>Answer</h3>
+						<ul>
+							<li><strong>{{answer.answer1}}</strong></li>
+							<li><strong>{{answer.answer2}}</strong></li>
+							<li><strong>{{answer.answer3}}</strong></li>
+							<li><strong>{{answer.answer4}}</strong></li>
+							<li><strong>{{answer.answer5}}</strong></li>
 						</ul>
 					</div>
 				</div>
@@ -420,6 +434,7 @@
 		<script src="Doctor_Dashboard/js/dirPagination.js"></script>
 		<script src="Doctor_Dashboard/js/cookie.js"></script>
 		<script src="Doctor_Dashboard/js/check.js"></script>
+		<script src="Doctor_Dashboard/js/request.js"></script>
 	<!-- end: JavaScript-->
 	</div>
 </body>
