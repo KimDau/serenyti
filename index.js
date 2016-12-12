@@ -110,5 +110,5 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
 
 
 app.listen(8080, function () {
-  console.log('Listening on port 3000!')
+  console.log('Listening on port 8080!')
 });
