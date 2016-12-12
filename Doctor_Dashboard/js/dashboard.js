@@ -23,22 +23,21 @@ var app = angular.module('pillarApp', ['angularUtils.directives.dirPagination'])
 		$scope.sort = function(keyname){
 			$scope.sortKey = keyname;
 			$scope.reverse = !$scope.reverse;
-		}
+		};
 
 		//Fonction d'identification du patient choisi
 		$scope.identifierPatient = function(id){
 			$scope.patientSelect = $scope.patients[id-1];
 			$scope.infoPatient = !$scope.infoPatient;
-		}
+		};
 
         $scope.identifiatePatientAndGetProm = function(id){
             var getTheProm = Promise.resolve(getLastProm($scope));
             getTheProm.then(function(){
+                console.log("test");
                 $scope.patientSelect = $scope.patients[id-1];
-                $scope.infoPatient = !$scope.infoPatient;
-            });
+                $scope.infoPatient = !$scope.infoPatient;});
         }
-
 }); //end of controlleur
 
 function getLastProm($scope)

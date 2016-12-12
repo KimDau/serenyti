@@ -89,6 +89,7 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
         collection.save({
             "_id" : ObjectId("584c4e8595cee101f58028be"),
             "name" : "vous",
+            "problem" : "true",
             "prom" : [
                 ["2016/12/11_20", ["yes", "0"], ["no", "1"], ["no", "2"], ["yes", "3"], ["2", "4"]],
                 ["2016/12/11_20", ["no", "0"], ["yes", "1"], ["no", "2"], ["yes", "3"], ["2", "4"]],
@@ -100,7 +101,7 @@ MongoClient.connect("mongodb://localhost:27017/Pillar", function(err, db) {
                 ["2016/5/3_15",
                     ["name", 56, 7],
                     ["name", 56, 7]]]
-        })
+        });
         res.redirect('/dashboard');
     });
 });
